@@ -1,0 +1,24 @@
+CUDA_VISIBLE_DEVICES=0 \
+swift sft \
+    --model /mnt/shared-storage-user/sciprismax/public_models/Qwen3-VL-8B-Instruct \
+    --train_type lora \
+    --lora_rank 8 \
+    --lora_alpha 32 \
+    --target_modules all-linear \
+    --dataset ./toolsciverifier/sciprm-bench/train_conv_think.jsonl \
+    --load_from_cache_file true \
+    --torch_dtype bfloat16 \
+    --num_train_epochs 1 \
+    --per_device_train_batch_size 2 \
+    --per_device_eval_batch_size 2 \
+    --learning_rate 1e-4 \
+    --gradient_accumulation_steps 2 \
+    --eval_steps 200 \
+    --save_steps 200 \
+    --save_total_limit 2 \
+    --logging_steps 5 \
+    --max_length 16384 \
+    --warmup_ratio 0.05 \
+    --dataloader_num_workers 4 \
+    --output_dir ./toolsciverifier/sciprm-bench/save_models \
+    --deepspeed zero2 

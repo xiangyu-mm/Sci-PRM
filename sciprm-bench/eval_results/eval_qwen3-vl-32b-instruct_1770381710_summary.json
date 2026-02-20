@@ -1,0 +1,17 @@
+{
+  "total_items": 4044,
+  "successful_parses": 4044,
+  "parse_errors": 0,
+  "confusion_matrix": {
+    "tp": 1712,
+    "fp": 1005,
+    "tn": 734,
+    "fn": 593
+  },
+  "metrics": {
+    "accuracy": 0.6048,
+    "precision_valid": 0.6301,
+    "recall_valid": 0.7427,
+    "f1_valid": 0.6818
+  }
+}
